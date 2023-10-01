@@ -5,6 +5,6 @@ declare interface Equipment {
 }
 
 declare interface EquipmentState {
-    selectedEquipment?: Equipment;
-    equipmentList: Equipment[];
-  };
+  selectedEquipment?: Equipment;
+  equipmentList: Equipment[];
+}

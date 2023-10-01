@@ -1,16 +1,22 @@
-import { EquipmentAction, EquipmentActionTypes } from "../actions/equipmentActions";
+import {
+  EquipmentAction,
+  EquipmentActionTypes,
+} from "../actions/equipmentActions";
 
 const initialState: EquipmentState = {
-    equipmentList: []
+  equipmentList: [],
 };
 
-export const equipmentReducer = (state = initialState, action: EquipmentAction): EquipmentState => {
-switch (action.type) {
+export const equipmentReducer = (
+  state = initialState,
+  action: EquipmentAction,
+): EquipmentState => {
+  switch (action.type) {
     case EquipmentActionTypes.GET_EQUIPMENT:
-        return { ...state, selectedEquipment: action.payload};
-  case EquipmentActionTypes.GET_EQUIPMENTS:
-    return { ...state, equipmentList: action.payload };
-  default:
-    return state;
-}
+      return { ...state, selectedEquipment: action.payload };
+    case EquipmentActionTypes.GET_EQUIPMENTS:
+      return { ...state, equipmentList: action.payload };
+    default:
+      return state;
+  }
 };

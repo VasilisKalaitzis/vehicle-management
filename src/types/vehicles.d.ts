@@ -10,4 +10,4 @@ declare interface Vehicle {
 declare interface VehicleState {
   selectedVehicle?: Vehicle;
   vehicleList: Vehicle[];
-};
+}
