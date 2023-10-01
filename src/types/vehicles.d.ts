@@ -1,4 +1,4 @@
 declare interface Vehicle {
-    id: string;
-    name: string;
+  id: string;
+  name: string;
 }

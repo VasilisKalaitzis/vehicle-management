@@ -1,5 +1,5 @@
 const Vehicles = () => {
-    return <>Vehicle View</>;
+  return <>Vehicle View</>;
 };
 
 export default Vehicles;

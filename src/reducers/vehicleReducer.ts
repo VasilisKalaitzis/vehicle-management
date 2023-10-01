@@ -6,10 +6,10 @@
 // };
 
 // export const vehicleReducer = (state = VehicleState, action: ToolAction): VehicleState => {
-  // switch (action.type) {
-  //   case ToolActionTypes.CHANGE_ACTIVE_TOOL:
-  //     return { ...state, activeTool: action.payload };
-  //   default:
-  //     return state;
-  // }
+// switch (action.type) {
+//   case ToolActionTypes.CHANGE_ACTIVE_TOOL:
+//     return { ...state, activeTool: action.payload };
+//   default:
+//     return state;
+// }
 // };

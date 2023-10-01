@@ -1,6 +1,6 @@
 export enum VehicleActionTypes {
-  GET_VEHICLE = 'GET_VEHICLE',
-  GET_VEHICLES = 'GET_VEHICLES',
+  GET_VEHICLE = "GET_VEHICLE",
+  GET_VEHICLES = "GET_VEHICLES",
 }
 
 interface GetVehicleAction {
@@ -19,12 +19,12 @@ export const getVehicles = () => {
   return {
     type: VehicleActionTypes.GET_VEHICLES,
     payload: [],
-  }
+  };
 };
 
 export const getVehicle = () => {
   return {
     type: VehicleActionTypes.GET_VEHICLE,
-    payload: { id: '', name: ''},
-  }
+    payload: { id: "", name: "" },
+  };
 };
