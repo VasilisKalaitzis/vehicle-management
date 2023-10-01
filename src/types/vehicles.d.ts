@@ -1,0 +1,4 @@
+declare interface Vehicle {
+    id: string;
+    name: string;
+}
