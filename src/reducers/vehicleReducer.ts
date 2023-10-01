@@ -1,15 +1,16 @@
-// import { ToolAction, ToolActionTypes } from "../actions/vehicleActions";
+import { VehicleAction, VehicleActionTypes } from "../actions/vehicleActions";
 
-// const initialState: VehicleState = {
-//   activeTool: 'line',
-//   properties: {},
-// };
+const initialState: VehicleState = {
+    vehicleList: []
+};
 
-// export const vehicleReducer = (state = VehicleState, action: ToolAction): VehicleState => {
-// switch (action.type) {
-//   case ToolActionTypes.CHANGE_ACTIVE_TOOL:
-//     return { ...state, activeTool: action.payload };
-//   default:
-//     return state;
-// }
-// };
+export const vehicleReducer = (state = initialState, action: VehicleAction): VehicleState => {
+switch (action.type) {
+    case VehicleActionTypes.GET_VEHICLE:
+        return { ...state, selectedVehicle: action.payload};
+  case VehicleActionTypes.GET_VEHICLES:
+    return { ...state, vehicleList: action.payload };
+  default:
+    return state;
+}
+};

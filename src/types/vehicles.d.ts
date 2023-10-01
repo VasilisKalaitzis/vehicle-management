@@ -6,3 +6,8 @@ declare interface Vehicle {
   fuelType: string;
   equipments: number[];
 }
+
+declare interface VehicleState {
+  selectedVehicle?: Vehicle;
+  vehicleList: Vehicle[];
+};

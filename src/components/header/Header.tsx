@@ -23,8 +23,8 @@ const Header = () => (
         <Typography variant="h6">Warehouse management console</Typography>
       </HeaderSegments>
       <HeaderSegments>
-        <AppsIcon fontSize="large" sx={{ ml: 1, mb: "4px" }} />
-        <AccountCircleIcon fontSize="large" sx={{ ml: 1, mb: "4px" }} />
+        <AppsIcon fontSize="large" sx={{ ml: 2, mb: "4px" }} />
+        <AccountCircleIcon fontSize="large" sx={{ ml: 2, mb: "4px" }} />
       </HeaderSegments>
     </Toolbar>
   </AppBar>

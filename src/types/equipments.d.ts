@@ -3,3 +3,8 @@ declare interface Equipment {
   name: string;
   image: string;
 }
+
+declare interface EquipmentState {
+    selectedEquipment?: Equipment;
+    equipmentList: Equipment[];
+  };
