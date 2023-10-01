@@ -22,7 +22,7 @@ export const getVehicles = () => {
   };
 };
 
-export const getVehicle = () => {
+export const getVehicle = (id: string) => {
   return {
     type: VehicleActionTypes.GET_VEHICLE,
     payload: { id: "", name: "" },
