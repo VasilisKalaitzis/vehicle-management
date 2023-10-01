@@ -24,8 +24,18 @@ const App: React.FC = () => {
   };
 
   const warehouseCategories = [
-    { id: 0, name: "vehicles", icon: <CommuteIcon fontSize="large"/>,component: <Vehicles /> },
-    { id: 1, name: "equipment", icon: <HomeRepairServiceIcon fontSize="large"/>, component: <Equipment /> },
+    {
+      id: 0,
+      name: "vehicles",
+      icon: <CommuteIcon fontSize="large" />,
+      component: <Vehicles />,
+    },
+    {
+      id: 1,
+      name: "equipment",
+      icon: <HomeRepairServiceIcon fontSize="large" />,
+      component: <Equipment />,
+    },
   ];
 
   return (
@@ -47,7 +57,7 @@ const App: React.FC = () => {
               icon={category.icon}
               id={`warehouse-category-${category.id}`}
               aria-controls={`warehouse-category-tabpanel-${category.id}`}
-              sx={{p: "24px 16px"}}
+              sx={{ p: "24px 16px" }}
             />
           ))}
         </Tabs>

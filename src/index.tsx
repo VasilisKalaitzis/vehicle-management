@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import App from "./components/App";
 import "./index.css";
-import {theme} from './theme';
+import { theme } from "./theme";
 import { ThemeProvider } from "@mui/material";
 
 const rootElement = document.getElementById("root");
@@ -12,9 +12,9 @@ const rootElement = document.getElementById("root");
 if (rootElement) {
   createRoot(rootElement).render(
     <ThemeProvider theme={theme}>
-<Provider store={store}>
-      <App />
-    </Provider>
+      <Provider store={store}>
+        <App />
+      </Provider>
     </ThemeProvider>,
   );
 } else {
