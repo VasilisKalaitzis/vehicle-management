@@ -10,10 +10,11 @@ import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
 
 const MainBody = styled(Grid)({
   height: `calc(100vh - ${TOP_BAR_HEIGHT}px)`, // adjust this value to match your toolbar height
-  overflow: "auto",
+  overflow: "hidden",
   flexGrow: 1,
   marginTop: `${TOP_BAR_HEIGHT}px`,
   boxSizing: "border-box",
+  flexWrap: 'nowrap',
 });
 
 const App: React.FC = () => {
@@ -47,7 +48,7 @@ const App: React.FC = () => {
           value={activeTab}
           onChange={handleTabChange}
           aria-label="warehouse categories"
-          sx={{ borderRight: 1, borderColor: "divider" }}
+          sx={{ borderRight: 1, borderColor: "divider", minWidth: '140px' }}
         >
           {warehouseCategories.map((category) => (
             <Tab

@@ -12,9 +12,9 @@ export const equipmentReducer = (
   action: EquipmentAction,
 ): EquipmentState => {
   switch (action.type) {
-    case EquipmentActionTypes.GET_EQUIPMENT:
+    case EquipmentActionTypes.FETCH_EQUIPMENT:
       return { ...state, selectedEquipment: action.payload };
-    case EquipmentActionTypes.GET_EQUIPMENTS:
+    case EquipmentActionTypes.FETCH_EQUIPMENTS:
       return { ...state, equipmentList: action.payload };
     default:
       return state;

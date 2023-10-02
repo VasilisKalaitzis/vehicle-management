@@ -21,6 +21,7 @@ const ItemTile = (props: TabPanelProps) => {
         display: "block",
         border: "1px solid black",
         p: 0,
+        m: 2,
       }}
       onClick={() => onClick(id)}
     >
