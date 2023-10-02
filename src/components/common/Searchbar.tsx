@@ -2,11 +2,12 @@ import React from "react";
 import { InputAdornment, InputBase } from "@mui/material";
 import { Search } from "@mui/icons-material";
 
-interface SearchbarProps {
+interface Props {
   onChange: (id: string) => void;
 }
 
-const Searchbar = ({ onChange }: SearchbarProps) => {
+// This component represents the searchbar used throughout the app
+const Searchbar = ({ onChange }: Props) => {
   // Create a timer ID to keep track of the setTimeout
   let timerId: NodeJS.Timeout;
 

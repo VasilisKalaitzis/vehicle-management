@@ -1,11 +1,11 @@
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
+import { fetchEquipments } from "../../actions/equipmentActions";
 import ItemTileList from "../common/ItemTileList";
-import { fetchVehicles } from "../../actions/vehicleActions";
 
-const Vehicles = () => {
-  const { vehicleList } = useSelector<RootState, VehicleState>(
-    (state) => state.vehicle,
+const Equipments = () => {
+  const { equipmentList } = useSelector<RootState, EquipmentState>(
+    (state) => state.equipment,
   );
   // View equipment data
   const handleClickOnEquipment = (id: string) => {};
@@ -15,12 +15,12 @@ const Vehicles = () => {
 
   return (
     <ItemTileList
-      itemList={vehicleList}
-      fetchItems={fetchVehicles}
+      itemList={equipmentList}
+      fetchItems={fetchEquipments}
       onItemClick={handleClickOnEquipment}
       onImport={handleImport}
     />
   );
 };
 
-export default Vehicles;
+export default Equipments;

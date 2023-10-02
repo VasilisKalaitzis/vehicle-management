@@ -1,12 +1,13 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
-interface TabPanelProps {
+interface Props {
   children?: React.ReactNode;
   index: number;
   value: number;
 }
 
-const TabPanel = (props: TabPanelProps) => {
+// this component represents the tab panel used by Material UI Tabs component
+const TabPanel = (props: Props) => {
   const { children, value, index, ...other } = props;
 
   return (

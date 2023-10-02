@@ -1,14 +1,15 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 
-interface TabPanelProps {
+interface Props {
   id: string;
   image?: string;
   label: string;
   onClick: (id: string) => void;
 }
 
-const ItemTile = (props: TabPanelProps) => {
+// This component represent an Item Tile such as an Equipment or a Vehicle
+const ItemTile = (props: Props) => {
   const { id, image, label, onClick } = props;
 
   return (

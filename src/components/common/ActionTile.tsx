@@ -1,14 +1,14 @@
 import React, { ReactElement } from "react";
 import { Box, Button, Typography } from "@mui/material";
 
-interface TabPanelProps {
+interface Props {
   id: string;
   icon?: ReactElement;
   label: string;
   onClick: (id?: string) => void;
 }
 
-const ActionTile = (props: TabPanelProps) => {
+const ActionTile = (props: Props) => {
   const { id, icon, label, onClick } = props;
 
   return (

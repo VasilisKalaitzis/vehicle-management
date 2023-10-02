@@ -14,5 +14,8 @@ export const theme = createTheme({
     allVariants: {
       color: grey[800],
     },
+    button: {
+      textTransform: "none",
+    },
   },
 });
