@@ -25,8 +25,19 @@ export const fetchEquipment = (id: string) => {
   };
 };
 
-export const fetchEquipments = () => {
-  const payload = equipments.map((item) => ({ name: item.name, id: item.id }));
+export const fetchEquipments = (searchQuery?: string) => {
+  const filteredEquipments = searchQuery
+    ? equipments.filter(
+        (item) =>
+          item?.name
+            ?.toLocaleLowerCase()
+            .indexOf(searchQuery.toLocaleLowerCase()) > -1,
+      )
+    : equipments;
+  const payload = filteredEquipments.map((item) => ({
+    name: item.name,
+    id: item.id,
+  }));
   return {
     type: EquipmentActionTypes.FETCH_EQUIPMENTS,
     payload,

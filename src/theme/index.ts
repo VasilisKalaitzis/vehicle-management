@@ -6,6 +6,9 @@ export const theme = createTheme({
     primary: {
       main: green[700],
     },
+    info: {
+      main: grey[800],
+    },
   },
   typography: {
     allVariants: {

@@ -14,7 +14,7 @@ const MainBody = styled(Grid)({
   flexGrow: 1,
   marginTop: `${TOP_BAR_HEIGHT}px`,
   boxSizing: "border-box",
-  flexWrap: 'nowrap',
+  flexWrap: "nowrap",
 });
 
 const App: React.FC = () => {
@@ -48,7 +48,7 @@ const App: React.FC = () => {
           value={activeTab}
           onChange={handleTabChange}
           aria-label="warehouse categories"
-          sx={{ borderRight: 1, borderColor: "divider", minWidth: '140px' }}
+          sx={{ borderRight: 1, borderColor: "divider", minWidth: "140px" }}
         >
           {warehouseCategories.map((category) => (
             <Tab

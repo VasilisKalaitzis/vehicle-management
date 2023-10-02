@@ -25,8 +25,19 @@ export const fetchVehicle = (id: string) => {
   };
 };
 
-export const fetchVehicles = () => {
-  const payload = vehicles.map((item) => ({ name: item.name, id: item.id }));
+export const fetchVehicles = (searchQuery?: string) => {
+  const filteredVehicles = searchQuery
+    ? vehicles.filter(
+        (item) =>
+          item?.name
+            ?.toLocaleLowerCase()
+            .indexOf(searchQuery.toLocaleLowerCase()) > -1,
+      )
+    : vehicles;
+  const payload = filteredVehicles.map((item) => ({
+    name: item.name,
+    id: item.id,
+  }));
   return {
     type: VehicleActionTypes.FETCH_VEHICLES,
     payload,

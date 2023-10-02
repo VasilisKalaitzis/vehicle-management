@@ -12,7 +12,6 @@ UI Framework: Material UI v5
 
 State Management: Redux
 
-
 ## How to run
 
 ### `yarn start`
