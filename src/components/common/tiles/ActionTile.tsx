@@ -16,7 +16,7 @@ const ActionTile = (props: Props) => {
       disableElevation
       disableFocusRipple
       sx={(theme) => ({
-        height: "auto",
+        height: "156px",
         width: "240px",
         display: "block",
         border: "1px solid black",
@@ -31,7 +31,7 @@ const ActionTile = (props: Props) => {
         justifyContent="center"
         alignItems="center"
         flexDirection="column"
-        height="156px"
+        height="100%"
         width="100%"
       >
         <Box p="4px" color={(theme) => theme.palette.info.main}>

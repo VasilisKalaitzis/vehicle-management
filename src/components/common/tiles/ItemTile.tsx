@@ -16,7 +16,7 @@ const ItemTile = (props: Props) => {
     <Button
       disableElevation
       sx={{
-        height: "auto",
+        height: "156px",
         width: "240px",
         display: "block",
         border: "1px solid black",

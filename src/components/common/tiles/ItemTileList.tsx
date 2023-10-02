@@ -7,6 +7,7 @@ import ActionTile from "./ActionTile";
 import ItemTile from "./ItemTile";
 import Searchbar from "../Searchbar";
 import ImportDialog from "../ImportDialog";
+import { TOP_BAR_HEIGHT } from "../../../constants/app-constants";
 
 interface Props {
   itemList: { id: string; name: string }[];
@@ -39,8 +40,8 @@ const ItemTileList = ({
   };
 
   return (
-    <Box width="100%">
-      <Box p="8px 16px" display="flex">
+    <Box width="100%" height="inherit">
+      <Box p="8px 16px" display="flex" height="38px">
         <Typography variant="h4" pr="16px">
           {title}
         </Typography>
@@ -48,8 +49,19 @@ const ItemTileList = ({
           <Searchbar onChange={setSearchQuery} />
         </Box>
       </Box>
-
-      <Box display="flex" flexWrap="wrap">
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        overflow="auto"
+        height="inherit"
+        sx={{ height: `calc(100% - ${TOP_BAR_HEIGHT}px)` }}
+      >
+        <ActionTile
+          label="Add"
+          icon={<Add fontSize="large" />}
+          id="addButton"
+          onClick={() => setDialogOpen(true)}
+        />
         {itemList.map((item) => (
           <ItemTile
             key={`vehicle-list-key${item.id}`}
@@ -59,12 +71,6 @@ const ItemTileList = ({
             image={require("../../../temp/default_image.png")}
           />
         ))}
-        <ActionTile
-          label="Add"
-          icon={<Add fontSize="large" />}
-          id="addButton"
-          onClick={() => setDialogOpen(true)}
-        />
       </Box>
       <ImportDialog
         open={dialogOpen}
