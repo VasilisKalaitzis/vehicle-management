@@ -57,7 +57,7 @@ const ItemTileList = ({
         sx={{ height: `calc(100% - ${TOP_BAR_HEIGHT}px)` }}
       >
         <ActionTile
-          label="Add"
+          label={`Add ${title}`}
           icon={<Add fontSize="large" />}
           id="addButton"
           onClick={() => setDialogOpen(true)}
