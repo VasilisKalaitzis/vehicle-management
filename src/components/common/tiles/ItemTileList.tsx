@@ -1,26 +1,28 @@
 import { useEffect, useState } from "react";
-import { Add } from "@mui/icons-material";
-import ItemTile from "../common/ItemTile";
 import { useDispatch } from "react-redux";
-import { Box } from "@mui/material";
-import ActionTile from "../common/ActionTile";
-import Searchbar from "../common/Searchbar";
-import ImportDialog from "../common/ImportDialog";
 import { AnyAction } from "redux";
+import { Add } from "@mui/icons-material";
+import { Box, Typography } from "@mui/material";
+import ActionTile from "./ActionTile";
+import ItemTile from "./ItemTile";
+import Searchbar from "../Searchbar";
+import ImportDialog from "../ImportDialog";
 
 interface Props {
   itemList: { id: string; name: string }[];
-  fetchItems: (searchQuery?: string) => AnyAction;
+  onFetchItems: (searchQuery?: string) => AnyAction;
   onItemClick: (id: string) => void;
-  onImport: (option: string) => void;
+  onImport: (option: ImportType) => void;
+  title: string;
 }
 
 // This component represent the list of the item tiles (such as the equipments and vehicles)
 const ItemTileList = ({
   itemList,
   onItemClick,
-  fetchItems,
+  onFetchItems,
   onImport,
+  title,
 }: Props) => {
   const dispatch = useDispatch();
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -28,19 +30,25 @@ const ItemTileList = ({
 
   // Fetch items (e.g vehicle, equipments)
   useEffect(() => {
-    dispatch(fetchItems(searchQuery));
-  }, [dispatch, fetchItems, searchQuery]);
+    dispatch(onFetchItems(searchQuery));
+  }, [dispatch, onFetchItems, searchQuery]);
 
-  const handleImport = (option: string) => {
+  const handleImport = (option: ImportType) => {
     onImport(option);
     setDialogOpen(false);
   };
 
   return (
     <Box width="100%">
-      <Box p="8px 16px">
-        <Searchbar onChange={setSearchQuery} />{" "}
+      <Box p="8px 16px" display="flex">
+        <Typography variant="h4" pr="16px">
+          {title}
+        </Typography>
+        <Box display="flex" flexGrow={1} justifyContent="end">
+          <Searchbar onChange={setSearchQuery} />
+        </Box>
       </Box>
+
       <Box display="flex" flexWrap="wrap">
         {itemList.map((item) => (
           <ItemTile
@@ -48,13 +56,13 @@ const ItemTileList = ({
             onClick={() => onItemClick(item.id)}
             id={item.id}
             label={item.name}
-            image={require("../../temp/default_image.png")}
+            image={require("../../../temp/default_image.png")}
           />
         ))}
         <ActionTile
-          label="Add Vehicle"
+          label="Add"
           icon={<Add fontSize="large" />}
-          id="addVehicle"
+          id="addButton"
           onClick={() => setDialogOpen(true)}
         />
       </Box>

@@ -1,6 +1,6 @@
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
-import ItemTileList from "../common/ItemTileList";
+import ItemTileList from "../common/tiles/ItemTileList";
 import { fetchVehicles } from "../../actions/vehicleActions";
 
 const Vehicles = () => {
@@ -11,12 +11,13 @@ const Vehicles = () => {
   const handleClickOnEquipment = (id: string) => {};
 
   // handle import new equipments
-  const handleImport = () => {};
+  const handleImport = (option: ImportType) => {};
 
   return (
     <ItemTileList
+      title="Vehicles"
       itemList={vehicleList}
-      fetchItems={fetchVehicles}
+      onFetchItems={fetchVehicles}
       onItemClick={handleClickOnEquipment}
       onImport={handleImport}
     />

@@ -16,6 +16,7 @@ const TabPanel = (props: Props) => {
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
+      style={{ width: "inherit" }}
       {...other}
     >
       {value === index && <Box p={1}>{children}</Box>}

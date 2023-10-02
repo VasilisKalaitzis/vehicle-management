@@ -14,7 +14,6 @@ const ActionTile = (props: Props) => {
   return (
     <Button
       disableElevation
-      disableRipple
       disableFocusRipple
       sx={(theme) => ({
         height: "auto",

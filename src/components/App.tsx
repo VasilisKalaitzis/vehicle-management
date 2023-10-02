@@ -52,6 +52,7 @@ const App: React.FC = () => {
         >
           {warehouseCategories.map((category) => (
             <Tab
+              key={`warehouse-category-tab-${category.id}`}
               disableRipple
               tabIndex={category.id}
               label={category.name}
@@ -63,7 +64,11 @@ const App: React.FC = () => {
           ))}
         </Tabs>
         {warehouseCategories.map((category) => (
-          <TabPanel value={activeTab} index={category.id}>
+          <TabPanel
+            key={`warehouse-category-tab-panel-${category.id}`}
+            value={activeTab}
+            index={category.id}
+          >
             {category.component}
           </TabPanel>
         ))}

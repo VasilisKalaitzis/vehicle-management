@@ -18,4 +18,12 @@ export const theme = createTheme({
       textTransform: "none",
     },
   },
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+        disableTouchRipple: true,
+      },
+    },
+  },
 });

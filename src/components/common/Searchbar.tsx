@@ -23,13 +23,15 @@ const Searchbar = ({ onChange }: Props) => {
   return (
     <InputBase
       sx={(theme) => ({
-        minWidth: "400px",
+        maxWidth: "600px",
+        minWidth: "200px",
         border: `1px solid ${theme.palette.info.main}`,
         borderRadius: "4px",
+        flexGrow: 1,
       })}
       onChange={handleChange}
       startAdornment={
-        <InputAdornment position="start">
+        <InputAdornment position="start" sx={{ marginLeft: "4px" }}>
           <Search />
         </InputAdornment>
       }

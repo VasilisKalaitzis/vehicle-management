@@ -7,6 +7,7 @@ import {
   DialogActions,
   Typography,
 } from "@mui/material";
+import { IMPORT_TYPE_VALUES } from "../../constants/item";
 
 interface Props {
   open: boolean;
@@ -26,10 +27,10 @@ const ImportDialog = ({ open, onClose, onImport }: Props) => {
       </DialogContent>
       <DialogActions>
         <Button onClick={() => onImport(IMPORT_TYPE_VALUES.MANUAL)}>
-          Manual Import
+          Import Manually
         </Button>
         <Button onClick={() => onImport(IMPORT_TYPE_VALUES.JSON)}>
-          Import from JSON
+          Import from File
         </Button>
       </DialogActions>
     </Dialog>

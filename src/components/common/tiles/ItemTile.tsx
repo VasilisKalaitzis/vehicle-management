@@ -15,8 +15,6 @@ const ItemTile = (props: Props) => {
   return (
     <Button
       disableElevation
-      disableRipple
-      disableFocusRipple
       sx={{
         height: "auto",
         width: "240px",
