@@ -2,6 +2,7 @@ import { RootState } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import ItemTileList from "../common/tiles/ItemTileList";
 import {
+  addVehicles,
   deselectVehicle,
   fetchVehicles,
   selectVehicle,
@@ -26,9 +27,11 @@ const Vehicles = () => {
   const handleClickOnEquipment = (id: Id) => dispatch(selectVehicle(id));
 
   // handle import new vehicles
-  const handleImport = (option: ImportType) => {
+  const handleImport = (option: ImportType, data?: Vehicle[]) => {
     if (option === IMPORT_TYPE_VALUES.MANUAL) {
       dispatch(selectVehicle(NEW_ITEM_TEMP_ID));
+    } else if (option === IMPORT_TYPE_VALUES.JSON && data) {
+      dispatch(addVehicles(data));
     }
   };
 

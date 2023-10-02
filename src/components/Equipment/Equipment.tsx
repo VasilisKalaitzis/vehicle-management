@@ -1,6 +1,7 @@
 import { RootState } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  addEquipments,
   deselectEquipment,
   fetchEquipments,
   selectEquipment,
@@ -27,9 +28,11 @@ const Equipment = () => {
   const handleClickOnEquipment = (id: Id) => dispatch(selectEquipment(id));
 
   // handle import new equipments
-  const handleImport = (option: ImportType) => {
+  const handleImport = (option: ImportType, data?: Equipment[]) => {
     if (option === IMPORT_TYPE_VALUES.MANUAL) {
       dispatch(selectEquipment(NEW_ITEM_TEMP_ID));
+    } else if (option === IMPORT_TYPE_VALUES.JSON && data) {
+      dispatch(addEquipments(data));
     }
   };
 

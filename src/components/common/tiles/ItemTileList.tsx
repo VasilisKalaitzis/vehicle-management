@@ -13,7 +13,7 @@ interface Props {
   itemList: { id: Id; name: string }[];
   onFetchItems: (searchQuery?: string) => AnyAction;
   onItemClick: (id: Id) => void;
-  onImport: (option: ImportType) => void;
+  onImport: (option: ImportType, data?: any) => void;
   title: string;
 }
 
@@ -34,8 +34,8 @@ const ItemTileList = ({
     dispatch(onFetchItems(searchQuery));
   }, [dispatch, onFetchItems, searchQuery]);
 
-  const handleImport = (option: ImportType) => {
-    onImport(option);
+  const handleImport = (option: ImportType, data?: any) => {
+    onImport(option, data);
     setDialogOpen(false);
   };
 

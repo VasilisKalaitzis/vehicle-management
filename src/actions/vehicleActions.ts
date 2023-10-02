@@ -1,10 +1,11 @@
-import vehicles from "../temp/vehicles.json";
 import { NEW_ITEM_TEMP_ID } from "../constants/item";
+import backendApi from "../mock-backend-services";
 
 export enum VehicleActionTypes {
   SELECT_VEHICLE = "SELECT_VEHICLE",
   DESELECT_VEHICLE = "DESELECT_VEHICLE",
   FETCH_VEHICLES = "FETCH_VEHICLES",
+  ADD_VEHICLES = "ADD_VEHICLES",
 }
 
 interface SelectVehicleAction {
@@ -21,19 +22,22 @@ interface FetchVehiclesAction {
   payload: Vehicle[];
 }
 
+interface AddVehiclesAction {
+  type: VehicleActionTypes.ADD_VEHICLES;
+  payload: Vehicle[];
+}
+
 export type VehicleAction =
   | SelectVehicleAction
   | DeselectVehicleAction
-  | FetchVehiclesAction;
+  | FetchVehiclesAction
+  | AddVehiclesAction;
 
 export const selectVehicle = (id: Id) => {
-  const equipment =
-    id !== NEW_ITEM_TEMP_ID
-      ? vehicles.find((item) => String(item.id) === id)
-      : {};
+  const vehicle = id !== NEW_ITEM_TEMP_ID ? backendApi.getVehicleById(id) : {};
   return {
     type: VehicleActionTypes.SELECT_VEHICLE,
-    payload: equipment,
+    payload: vehicle,
   };
 };
 
@@ -42,20 +46,15 @@ export const deselectVehicle = () => ({
 });
 
 export const fetchVehicles = (searchQuery?: string) => {
-  const filteredVehicles = searchQuery
-    ? vehicles.filter(
-        (item) =>
-          item?.name
-            ?.toLocaleLowerCase()
-            .indexOf(searchQuery.toLocaleLowerCase()) > -1,
-      )
-    : vehicles;
-  const payload = filteredVehicles.map((item) => ({
-    name: item.name,
-    id: item.id,
-  }));
   return {
     type: VehicleActionTypes.FETCH_VEHICLES,
-    payload,
+    payload: backendApi.getVehicles(searchQuery),
+  };
+};
+
+export const addVehicles = (vehicles: Vehicle[]) => {
+  backendApi.saveVehicles(vehicles);
+  return {
+    type: VehicleActionTypes.ADD_VEHICLES,
   };
 };
