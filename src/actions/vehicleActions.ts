@@ -1,29 +1,45 @@
 import vehicles from "../temp/vehicles.json";
+import { NEW_ITEM_TEMP_ID } from "../constants/item";
 
 export enum VehicleActionTypes {
-  FETCH_VEHICLE = "FETCH_VEHICLE",
+  SELECT_VEHICLE = "SELECT_VEHICLE",
+  DESELECT_VEHICLE = "DESELECT_VEHICLE",
   FETCH_VEHICLES = "FETCH_VEHICLES",
 }
 
-interface GetVehicleAction {
-  type: VehicleActionTypes.FETCH_VEHICLE;
+interface SelectVehicleAction {
+  type: VehicleActionTypes.SELECT_VEHICLE;
   payload: Vehicle;
 }
 
-interface GetVehiclesAction {
+interface DeselectVehicleAction {
+  type: VehicleActionTypes.DESELECT_VEHICLE;
+}
+
+interface FetchVehiclesAction {
   type: VehicleActionTypes.FETCH_VEHICLES;
   payload: Vehicle[];
 }
 
-export type VehicleAction = GetVehicleAction | GetVehiclesAction;
+export type VehicleAction =
+  | SelectVehicleAction
+  | DeselectVehicleAction
+  | FetchVehiclesAction;
 
-export const fetchVehicle = (id: string) => {
-  const equipment = vehicles.find((item) => String(item.id) === id);
+export const selectVehicle = (id: Id) => {
+  const equipment =
+    id !== NEW_ITEM_TEMP_ID
+      ? vehicles.find((item) => String(item.id) === id)
+      : {};
   return {
-    type: VehicleActionTypes.FETCH_VEHICLE,
+    type: VehicleActionTypes.SELECT_VEHICLE,
     payload: equipment,
   };
 };
+
+export const deselectVehicle = () => ({
+  type: VehicleActionTypes.DESELECT_VEHICLE,
+});
 
 export const fetchVehicles = (searchQuery?: string) => {
   const filteredVehicles = searchQuery

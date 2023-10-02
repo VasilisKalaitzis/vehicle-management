@@ -9,8 +9,10 @@ export const vehicleReducer = (
   action: VehicleAction,
 ): VehicleState => {
   switch (action.type) {
-    case VehicleActionTypes.FETCH_VEHICLE:
+    case VehicleActionTypes.SELECT_VEHICLE:
       return { ...state, selectedVehicle: action.payload };
+    case VehicleActionTypes.DESELECT_VEHICLE:
+      return { ...state, selectedVehicle: undefined };
     case VehicleActionTypes.FETCH_VEHICLES:
       return { ...state, vehicleList: action.payload };
     default:

@@ -4,7 +4,7 @@ import { Grid, Tabs, Tab, styled } from "@mui/material";
 import { TOP_BAR_HEIGHT } from "../constants/app-constants";
 import TabPanel from "./common/TabPanel";
 import Vehicles from "./Vehicles/Vehicles";
-import Equipment from "./Equipments/Equipments";
+import Equipment from "./Equipment/Equipment";
 import CommuteIcon from "@mui/icons-material/Commute";
 import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
 
@@ -27,13 +27,13 @@ const App: React.FC = () => {
   const warehouseCategories = [
     {
       id: 0,
-      name: "vehicles",
+      name: "Vehicles",
       icon: <CommuteIcon fontSize="large" />,
       component: <Vehicles />,
     },
     {
       id: 1,
-      name: "equipment",
+      name: "Equipment",
       icon: <HomeRepairServiceIcon fontSize="large" />,
       component: <Equipment />,
     },

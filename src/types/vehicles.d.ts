@@ -1,5 +1,5 @@
 declare interface Vehicle {
-  id: string;
+  id: Id;
   name: string;
   driver: string;
   status: string;

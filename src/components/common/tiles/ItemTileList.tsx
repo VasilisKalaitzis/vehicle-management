@@ -10,9 +10,9 @@ import ImportDialog from "../ImportDialog";
 import { TOP_BAR_HEIGHT } from "../../../constants/app-constants";
 
 interface Props {
-  itemList: { id: string; name: string }[];
+  itemList: { id: Id; name: string }[];
   onFetchItems: (searchQuery?: string) => AnyAction;
-  onItemClick: (id: string) => void;
+  onItemClick: (id: Id) => void;
   onImport: (option: ImportType) => void;
   title: string;
 }
@@ -51,6 +51,7 @@ const ItemTileList = ({
       </Box>
       <Box
         display="flex"
+        alignContent="flex-start"
         flexWrap="wrap"
         overflow="auto"
         height="inherit"

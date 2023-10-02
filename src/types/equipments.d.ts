@@ -1,5 +1,5 @@
 declare interface Equipment {
-  id: string;
+  id: Id;
   name: string;
   image: string;
 }

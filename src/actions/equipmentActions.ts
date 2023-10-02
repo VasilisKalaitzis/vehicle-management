@@ -1,29 +1,43 @@
 import equipments from "../temp/equipments.json";
+import { NEW_ITEM_TEMP_ID } from "../constants/item";
 
 export enum EquipmentActionTypes {
-  FETCH_EQUIPMENT = "FETCH_EQUIPMENT",
+  SELECT_EQUIPMENT = "SELECT_EQUIPMENT",
+  DESELECT_EQUIPMENT = "DESELECT_EQUIPMENT",
   FETCH_EQUIPMENTS = "FETCH_EQUIPMENTS",
 }
 
-interface GetEquipmentAction {
-  type: EquipmentActionTypes.FETCH_EQUIPMENT;
+interface SelectEquipmentAction {
+  type: EquipmentActionTypes.SELECT_EQUIPMENT;
   payload: Equipment;
 }
 
-interface GetEquipmentsAction {
+interface DeselectEquipmentAction {
+  type: EquipmentActionTypes.DESELECT_EQUIPMENT;
+}
+
+interface FetchEquipmentsAction {
   type: EquipmentActionTypes.FETCH_EQUIPMENTS;
   payload: Equipment[];
 }
 
-export type EquipmentAction = GetEquipmentAction | GetEquipmentsAction;
+export type EquipmentAction =
+  | SelectEquipmentAction
+  | DeselectEquipmentAction
+  | FetchEquipmentsAction;
 
-export const fetchEquipment = (id: string) => {
-  const equipment = equipments.find((item) => String(item.id) === id);
+export const selectEquipment = (id: Id) => {
+  const equipment =
+    id !== NEW_ITEM_TEMP_ID ? equipments.find((item) => item.id === id) : {};
   return {
-    type: EquipmentActionTypes.FETCH_EQUIPMENT,
+    type: EquipmentActionTypes.SELECT_EQUIPMENT,
     payload: equipment,
   };
 };
+
+export const deselectEquipment = () => ({
+  type: EquipmentActionTypes.SELECT_EQUIPMENT,
+});
 
 export const fetchEquipments = (searchQuery?: string) => {
   const filteredEquipments = searchQuery
