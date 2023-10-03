@@ -69,7 +69,7 @@ const ItemTileList = ({
             onClick={() => onItemClick(item?.id)}
             id={item?.id}
             label={item?.name}
-            image={require("../../../temp/default_image.png")}
+            image={require("../../../static/default_image.png")}
           />
         ))}
       </Box>
