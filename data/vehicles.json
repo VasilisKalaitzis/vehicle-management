@@ -5,7 +5,7 @@
     "driver": "SpongeBob SquarePants",
     "status": "active",
     "fuelType": "LNG",
-    "equipments": [1, 2]
+    "equipments": [100, 2]
   },
   {
     "id": "v2",

@@ -13,7 +13,7 @@ import {
 import { RootState } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import { deselectVehicle, updateVehicle } from "../../actions/vehicleActions";
-import { ACTIVE_STATUS_VALUES } from "../../constants/item";
+import { ACTIVE_STATUS_VALUES, fuelTypes } from "../../constants/item";
 import { fetchEquipments } from "../../actions/equipmentActions";
 
 const VehicleForm = () => {
@@ -113,9 +113,14 @@ const VehicleForm = () => {
               required
               disabled={!isEditing}
             >
-              <MenuItem value="LNG">LNG</MenuItem>
-              <MenuItem value="Gasoline">Gasoline</MenuItem>
-              <MenuItem value="Diesel">Diesel</MenuItem>
+              {fuelTypes.map((fuelType) => (
+                <MenuItem
+                  key={`vehicle-form-equipment-list-${fuelType}`}
+                  value={fuelType}
+                >
+                  {fuelType}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
         </Grid>
