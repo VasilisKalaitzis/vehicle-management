@@ -134,25 +134,6 @@ const VehicleForm = () => {
           </Grid>
           <Grid item xs={6} md={4}>
             <FormControl fullWidth variant="outlined" margin="normal">
-              <FormControlLabel
-                control={
-                  <Switch
-                    name="status"
-                    checked={
-                      formData.status === ACTIVE_STATUS_VALUES.ACTIVE
-                        ? true
-                        : false
-                    }
-                    onChange={handleChange}
-                    disabled={!isEditing}
-                  />
-                }
-                label="Status"
-              />
-            </FormControl>
-          </Grid>
-          <Grid item xs={6} md={4}>
-            <FormControl fullWidth variant="outlined" margin="normal">
               <InputLabel>Equipments</InputLabel>
               <Select
                 label="Equipments"
@@ -174,6 +155,25 @@ const VehicleForm = () => {
                     ),
                 )}
               </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={6} md={4}>
+            <FormControl fullWidth variant="outlined" margin="normal">
+              <FormControlLabel
+                control={
+                  <Switch
+                    name="status"
+                    checked={
+                      formData.status === ACTIVE_STATUS_VALUES.ACTIVE
+                        ? true
+                        : false
+                    }
+                    onChange={handleChange}
+                    disabled={!isEditing}
+                  />
+                }
+                label="Status"
+              />
             </FormControl>
           </Grid>
         </Grid>
