@@ -1,4 +1,4 @@
-// This file is not used instead of backend and provides a mock of the APIs
+// This file is temporarily instead of backend and provides a mock of the APIs
 // ToDo: replace this whole file along with the localstorage usage with a real database or a simple online API
 
 import { generateUniqueId } from "./utils";
