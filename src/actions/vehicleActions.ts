@@ -6,6 +6,7 @@ export enum VehicleActionTypes {
   DESELECT_VEHICLE = "DESELECT_VEHICLE",
   FETCH_VEHICLES = "FETCH_VEHICLES",
   ADD_VEHICLES = "ADD_VEHICLES",
+  UPDATE_VEHICLE = "UPDATE_VEHICLE",
 }
 
 interface SelectVehicleAction {
@@ -27,11 +28,17 @@ interface AddVehiclesAction {
   payload: Vehicle[];
 }
 
+interface UpdateVehicleAction {
+  type: VehicleActionTypes.UPDATE_VEHICLE;
+  payload: Vehicle;
+}
+
 export type VehicleAction =
   | SelectVehicleAction
   | DeselectVehicleAction
   | FetchVehiclesAction
-  | AddVehiclesAction;
+  | AddVehiclesAction
+  | UpdateVehicleAction;
 
 export const selectVehicle = (id: Id) => {
   const vehicle = id !== NEW_ITEM_TEMP_ID ? backendApi.getVehicleById(id) : {};
@@ -53,8 +60,14 @@ export const fetchVehicles = (searchQuery?: string) => {
 };
 
 export const addVehicles = (vehicles: Vehicle[]) => {
-  backendApi.saveVehicles(vehicles);
+  backendApi.addVehicles(vehicles);
+  return fetchVehicles();
+};
+
+export const updateVehicle = (vehicle: Vehicle) => {
+  const updatedVehicle = backendApi.updateVehicle(vehicle);
   return {
-    type: VehicleActionTypes.ADD_VEHICLES,
+    type: VehicleActionTypes.UPDATE_VEHICLE,
+    payload: updatedVehicle,
   };
 };

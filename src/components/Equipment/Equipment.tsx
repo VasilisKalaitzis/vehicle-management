@@ -7,7 +7,7 @@ import {
   selectEquipment,
 } from "../../actions/equipmentActions";
 import ItemTileList from "../common/tiles/ItemTileList";
-import EquipmentView from "./EquipmentView";
+import EquipmentForm from "./EquipmentForm";
 import { IMPORT_TYPE_VALUES, NEW_ITEM_TEMP_ID } from "../../constants/item";
 import { useEffect } from "react";
 
@@ -25,7 +25,8 @@ const Equipment = () => {
   }, [dispatch]);
 
   // View equipment data
-  const handleClickOnEquipment = (id: Id) => dispatch(selectEquipment(id));
+  const handleClickOnEquipment = (id?: Id) =>
+    dispatch(selectEquipment(id ?? NEW_ITEM_TEMP_ID));
 
   // handle import new equipments
   const handleImport = (option: ImportType, data?: Equipment[]) => {
@@ -45,7 +46,7 @@ const Equipment = () => {
       onImport={handleImport}
     />
   ) : (
-    <EquipmentView />
+    <EquipmentForm />
   );
 };
 

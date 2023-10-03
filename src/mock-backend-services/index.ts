@@ -1,15 +1,23 @@
-import { saveVehicles, getVehicleById, getVehicles } from "./vehicle-apis";
 import {
-  saveEquipments,
+  addVehicles,
+  updateVehicle,
+  getVehicleById,
+  getVehicles,
+} from "./vehicle-apis";
+import {
+  addEquipments,
+  updateEquipment,
   getEquipmentById,
   getEquipments,
 } from "./equipment-apis";
 
 const backendApi = {
-  saveVehicles,
+  addVehicles,
+  updateVehicle,
   getVehicleById,
   getVehicles,
-  saveEquipments,
+  addEquipments,
+  updateEquipment,
   getEquipmentById,
   getEquipments,
 };

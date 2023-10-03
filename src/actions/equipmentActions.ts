@@ -6,6 +6,7 @@ export enum EquipmentActionTypes {
   DESELECT_EQUIPMENT = "DESELECT_EQUIPMENT",
   FETCH_EQUIPMENTS = "FETCH_EQUIPMENTS",
   ADD_EQUIPMENTS = "ADD_EQUIPMENTS",
+  UPDATE_EQUIPMENT = "UPDATE_EQUIPMENT",
 }
 
 interface SelectEquipmentAction {
@@ -27,11 +28,17 @@ interface AddEquipmentsAction {
   payload: Equipment[];
 }
 
+interface UpdateEquipmentAction {
+  type: EquipmentActionTypes.UPDATE_EQUIPMENT;
+  payload: Equipment;
+}
+
 export type EquipmentAction =
   | SelectEquipmentAction
   | DeselectEquipmentAction
   | FetchEquipmentsAction
-  | AddEquipmentsAction;
+  | AddEquipmentsAction
+  | UpdateEquipmentAction;
 
 export const selectEquipment = (id: Id) => {
   const equipment =
@@ -54,6 +61,14 @@ export const fetchEquipments = (searchQuery?: string) => {
 };
 
 export const addEquipments = (equipments: Equipment[]) => {
-  backendApi.saveEquipments(equipments);
+  backendApi.addEquipments(equipments);
   return fetchEquipments();
+};
+
+export const updateEquipment = (equipment: Equipment) => {
+  const updatedEquipment = backendApi.updateEquipment(equipment);
+  return {
+    type: EquipmentActionTypes.UPDATE_EQUIPMENT,
+    payload: updatedEquipment,
+  };
 };

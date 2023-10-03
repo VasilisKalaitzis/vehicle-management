@@ -2,10 +2,10 @@ import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 
 interface Props {
-  id: Id;
+  id?: Id;
   image?: string;
-  label: string;
-  onClick: (id: Id) => void;
+  label?: string;
+  onClick: (id?: Id) => void;
 }
 
 // This component represent an Item Tile such as an Equipment or a Vehicle

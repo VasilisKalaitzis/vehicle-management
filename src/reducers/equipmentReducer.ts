@@ -18,6 +18,8 @@ export const equipmentReducer = (
       return { ...state, selectedEquipment: undefined };
     case EquipmentActionTypes.FETCH_EQUIPMENTS:
       return { ...state, equipmentList: action.payload };
+    case EquipmentActionTypes.UPDATE_EQUIPMENT:
+      return { ...state, selectedEquipment: action.payload };
     default:
       return state;
   }

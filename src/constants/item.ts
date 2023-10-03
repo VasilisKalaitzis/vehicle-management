@@ -4,3 +4,8 @@ export const enum IMPORT_TYPE_VALUES {
 }
 
 export const NEW_ITEM_TEMP_ID = null;
+
+export const enum ACTIVE_STATUS_VALUES {
+  ACTIVE = "active",
+  INACTIVE = "inactive",
+}

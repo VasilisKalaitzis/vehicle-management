@@ -15,6 +15,8 @@ export const vehicleReducer = (
       return { ...state, selectedVehicle: undefined };
     case VehicleActionTypes.FETCH_VEHICLES:
       return { ...state, vehicleList: action.payload };
+    case VehicleActionTypes.UPDATE_VEHICLE:
+      return { ...state, selectedVehicle: action.payload };
     default:
       return state;
   }

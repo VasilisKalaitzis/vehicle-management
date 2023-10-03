@@ -6,6 +6,9 @@ export const theme = createTheme({
     primary: {
       main: green[700],
     },
+    secondary: {
+      main: grey[600],
+    },
     info: {
       main: grey[800],
     },

@@ -1,7 +1,7 @@
 declare interface Equipment {
-  id: Id;
-  name: string;
-  image: string;
+  id?: Id;
+  name?: string;
+  image?: string;
 }
 
 declare interface EquipmentState {

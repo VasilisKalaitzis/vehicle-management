@@ -7,7 +7,7 @@ import {
   fetchVehicles,
   selectVehicle,
 } from "../../actions/vehicleActions";
-import VehicleView from "./VehicleView";
+import VehicleForm from "./VehicleForm";
 import { IMPORT_TYPE_VALUES, NEW_ITEM_TEMP_ID } from "../../constants/item";
 import { useEffect } from "react";
 
@@ -24,7 +24,8 @@ const Vehicles = () => {
   }, [dispatch]);
 
   // View equipment data
-  const handleClickOnEquipment = (id: Id) => dispatch(selectVehicle(id));
+  const handleClickOnEquipment = (id?: Id) =>
+    dispatch(selectVehicle(id ?? NEW_ITEM_TEMP_ID));
 
   // handle import new vehicles
   const handleImport = (option: ImportType, data?: Vehicle[]) => {
@@ -44,7 +45,7 @@ const Vehicles = () => {
       onImport={handleImport}
     />
   ) : (
-    <VehicleView />
+    <VehicleForm />
   );
 };
 

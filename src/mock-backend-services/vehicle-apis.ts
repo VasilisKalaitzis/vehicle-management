@@ -1,8 +1,9 @@
 // This file is not used instead of backend and provides a mock of the APIs
 // ToDo: replace this whole file along with the localstorage usage with a real database or a simple online API
+
 import { generateUniqueId } from "./utils";
 
-export const saveVehicles = (newVehicles: Vehicle[]) => {
+export const addVehicles = (newVehicles: Vehicle[]) => {
   const localStorageVehicles = localStorage.getItem("vehicles");
   const vehicleList = localStorageVehicles
     ? JSON.parse(localStorageVehicles)
@@ -14,6 +15,25 @@ export const saveVehicles = (newVehicles: Vehicle[]) => {
   localStorage.setItem("vehicles", JSON.stringify(vehicleList));
 };
 
+export const updateVehicle = (newVehicle: Vehicle) => {
+  let updatedVehicle = newVehicle;
+  const localStorageVehicles = localStorage.getItem("vehicles");
+  const vehicleList: Vehicle[] = localStorageVehicles
+    ? JSON.parse(localStorageVehicles)
+    : [];
+  if (updatedVehicle.id) {
+    const index = vehicleList.findIndex(
+      (vehicle) => vehicle.id === updatedVehicle.id,
+    );
+    vehicleList[index] = updatedVehicle;
+  } else {
+    updatedVehicle.id = generateUniqueId();
+    vehicleList.push({ ...updatedVehicle });
+  }
+  localStorage.setItem("vehicles", JSON.stringify(vehicleList));
+  return updatedVehicle;
+};
+
 export const getVehicles = (searchQuery?: string) => {
   const localStorageVehicles = localStorage.getItem("vehicles");
   const vehicleList: Vehicle[] = localStorageVehicles
@@ -22,8 +42,9 @@ export const getVehicles = (searchQuery?: string) => {
   const filteredVehicles = searchQuery
     ? vehicleList.filter(
         (item) =>
-          item?.name
-            ?.toLocaleLowerCase()
+          item?.name &&
+          item.name
+            .toLocaleLowerCase()
             .indexOf(searchQuery.toLocaleLowerCase()) > -1,
       )
     : vehicleList;

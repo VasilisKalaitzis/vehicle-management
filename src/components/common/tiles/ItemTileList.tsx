@@ -10,9 +10,9 @@ import ImportDialog from "../ImportDialog";
 import { TOP_BAR_HEIGHT } from "../../../constants/app-constants";
 
 interface Props {
-  itemList: { id: Id; name: string }[];
+  itemList: { id?: Id; name?: string }[];
   onFetchItems: (searchQuery?: string) => AnyAction;
-  onItemClick: (id: Id) => void;
+  onItemClick: (id?: Id) => void;
   onImport: (option: ImportType, data?: any) => void;
   title: string;
 }
@@ -66,9 +66,9 @@ const ItemTileList = ({
         {itemList.map((item) => (
           <ItemTile
             key={`vehicle-list-key${item.id}`}
-            onClick={() => onItemClick(item.id)}
-            id={item.id}
-            label={item.name}
+            onClick={() => onItemClick(item?.id)}
+            id={item?.id}
+            label={item?.name}
             image={require("../../../temp/default_image.png")}
           />
         ))}
