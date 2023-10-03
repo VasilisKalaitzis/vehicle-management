@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Button, Grid } from "@mui/material";
+import { TextField, Button, Grid, Box, Typography } from "@mui/material";
 import { RootState } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -39,64 +39,71 @@ const EquipmentForm = () => {
   };
 
   return (
-    <form>
-      <Grid container spacing={2}>
-        <Grid item xs={6} md={4}>
-          <TextField
-            label="ID"
-            name="id"
-            value={formData?.id}
-            onChange={handleChange}
-            fullWidth
-            required
-            variant="outlined"
-            margin="normal"
-            disabled={true}
-          />
+    <Box width="100%" height="inherit">
+      <Box p="8px 16px" display="flex" height="38px">
+        <Typography variant="h4" pr="16px">
+          Equipment
+        </Typography>
+      </Box>
+      <form>
+        <Grid container spacing={2}>
+          <Grid item xs={6} md={4}>
+            <TextField
+              label="ID"
+              name="id"
+              value={formData?.id}
+              onChange={handleChange}
+              fullWidth
+              required
+              variant="outlined"
+              margin="normal"
+              disabled={true}
+            />
+          </Grid>
+          <Grid item xs={6} md={4}>
+            <TextField
+              label="Name"
+              name="name"
+              value={formData?.name}
+              onChange={handleChange}
+              fullWidth
+              required
+              variant="outlined"
+              margin="normal"
+              disabled={!isEditing}
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={6} md={4}>
-          <TextField
-            label="Name"
-            name="name"
-            value={formData?.name}
-            onChange={handleChange}
-            fullWidth
-            required
-            variant="outlined"
-            margin="normal"
-            disabled={!isEditing}
-          />
-        </Grid>
-      </Grid>
-      {!isEditing && (
+        {!isEditing && (
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{ m: "4px 8px" }}
+            onClick={() => dispatch(deselectEquipment())}
+          >
+            Back
+          </Button>
+        )}
+        {isEditing && (
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{ m: "4px 8px" }}
+            onClick={() => setIsEditing(false)}
+          >
+            Cancel
+          </Button>
+        )}
         <Button
           variant="contained"
-          color="secondary"
+          color="primary"
           sx={{ m: "4px 8px" }}
-          onClick={() => dispatch(deselectEquipment())}
+          onClick={handleEditSaveClick}
         >
-          Back
+          {isEditing ? "Save" : "Edit"}
         </Button>
-      )}
-      {isEditing && (
-        <Button
-          variant="contained"
-          color="secondary"
-          sx={{ m: "4px 8px" }}
-          onClick={() => setIsEditing(false)}
-        >
-          Cancel
-        </Button>
-      )}
-      <Button
-        variant="contained"
-        color="primary"
-        sx={{ m: "4px 8px" }}
-        onClick={handleEditSaveClick}
-      >
-        {isEditing ? "Save" : "Edit"}
-      </Button>
-    </form>
+      </form>
+    </Box>
   );
 };
 

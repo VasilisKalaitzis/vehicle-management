@@ -9,6 +9,8 @@ import {
   Button,
   Grid,
   FormControlLabel,
+  Box,
+  Typography,
 } from "@mui/material";
 import { RootState } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
@@ -61,143 +63,150 @@ const VehicleForm = () => {
   };
 
   return (
-    <form>
-      <Grid container spacing={2}>
-        <Grid item xs={6} md={4}>
-          <TextField
-            label="ID"
-            name="id"
-            value={formData?.id}
-            onChange={handleChange}
-            fullWidth
-            required
-            variant="outlined"
-            margin="normal"
-            disabled={true}
-          />
-        </Grid>
-        <Grid item xs={6} md={4}>
-          <TextField
-            label="Name"
-            name="name"
-            value={formData?.name}
-            onChange={handleChange}
-            fullWidth
-            required
-            variant="outlined"
-            margin="normal"
-            disabled={!isEditing}
-          />
-        </Grid>
-        <Grid item xs={6} md={4}>
-          <TextField
-            label="Driver"
-            name="driver"
-            value={formData?.driver}
-            onChange={handleChange}
-            fullWidth
-            required
-            variant="outlined"
-            margin="normal"
-            disabled={!isEditing}
-          />
-        </Grid>
-        <Grid item xs={6} md={4}>
-          <FormControl fullWidth variant="outlined" margin="normal">
-            <InputLabel>Fuel Type</InputLabel>
-            <Select
-              label="Fuel Type"
-              name="fuelType"
-              value={formData?.fuelType}
+    <Box width="100%" height="inherit">
+      <Box p="8px 16px" display="flex" height="38px">
+        <Typography variant="h4" pr="16px">
+          Vehicle
+        </Typography>
+      </Box>
+      <form>
+        <Grid container spacing={2}>
+          <Grid item xs={6} md={4}>
+            <TextField
+              label="ID"
+              name="id"
+              value={formData?.id}
               onChange={handleChange}
+              fullWidth
               required
-              disabled={!isEditing}
-            >
-              {fuelTypes.map((fuelType) => (
-                <MenuItem
-                  key={`vehicle-form-equipment-list-${fuelType}`}
-                  value={fuelType}
-                >
-                  {fuelType}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Grid>
-        <Grid item xs={6} md={4}>
-          <FormControl fullWidth variant="outlined" margin="normal">
-            <FormControlLabel
-              control={
-                <Switch
-                  name="status"
-                  checked={
-                    formData.status === ACTIVE_STATUS_VALUES.ACTIVE
-                      ? true
-                      : false
-                  }
-                  onChange={handleChange}
-                  disabled={!isEditing}
-                />
-              }
-              label="Status"
+              variant="outlined"
+              margin="normal"
+              disabled={true}
             />
-          </FormControl>
-        </Grid>
-        <Grid item xs={6} md={4}>
-          <FormControl fullWidth variant="outlined" margin="normal">
-            <InputLabel>Equipments</InputLabel>
-            <Select
-              label="Equipments"
-              name="equipments"
-              multiple
-              value={formData?.equipments ?? []}
+          </Grid>
+          <Grid item xs={6} md={4}>
+            <TextField
+              label="Name"
+              name="name"
+              value={formData?.name}
               onChange={handleChange}
+              fullWidth
+              required
+              variant="outlined"
+              margin="normal"
               disabled={!isEditing}
-            >
-              {equipmentList.map(
-                (equipment) =>
-                  equipment.id && (
-                    <MenuItem
-                      key={`vehicle-form-equipment-list-${equipment.id}`}
-                      value={equipment.id}
-                    >
-                      {equipment.name}
-                    </MenuItem>
-                  ),
-              )}
-            </Select>
-          </FormControl>
+            />
+          </Grid>
+          <Grid item xs={6} md={4}>
+            <TextField
+              label="Driver"
+              name="driver"
+              value={formData?.driver}
+              onChange={handleChange}
+              fullWidth
+              required
+              variant="outlined"
+              margin="normal"
+              disabled={!isEditing}
+            />
+          </Grid>
+          <Grid item xs={6} md={4}>
+            <FormControl fullWidth variant="outlined" margin="normal">
+              <InputLabel>Fuel Type</InputLabel>
+              <Select
+                label="Fuel Type"
+                name="fuelType"
+                value={formData?.fuelType}
+                onChange={handleChange}
+                required
+                disabled={!isEditing}
+              >
+                {fuelTypes.map((fuelType) => (
+                  <MenuItem
+                    key={`vehicle-form-equipment-list-${fuelType}`}
+                    value={fuelType}
+                  >
+                    {fuelType}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={6} md={4}>
+            <FormControl fullWidth variant="outlined" margin="normal">
+              <FormControlLabel
+                control={
+                  <Switch
+                    name="status"
+                    checked={
+                      formData.status === ACTIVE_STATUS_VALUES.ACTIVE
+                        ? true
+                        : false
+                    }
+                    onChange={handleChange}
+                    disabled={!isEditing}
+                  />
+                }
+                label="Status"
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={6} md={4}>
+            <FormControl fullWidth variant="outlined" margin="normal">
+              <InputLabel>Equipments</InputLabel>
+              <Select
+                label="Equipments"
+                name="equipments"
+                multiple
+                value={formData?.equipments ?? []}
+                onChange={handleChange}
+                disabled={!isEditing}
+              >
+                {equipmentList.map(
+                  (equipment) =>
+                    equipment.id && (
+                      <MenuItem
+                        key={`vehicle-form-equipment-list-${equipment.id}`}
+                        value={equipment.id}
+                      >
+                        {equipment.name}
+                      </MenuItem>
+                    ),
+                )}
+              </Select>
+            </FormControl>
+          </Grid>
         </Grid>
-      </Grid>
-      {!isEditing && (
+        {!isEditing && (
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{ m: "4px 8px" }}
+            onClick={() => dispatch(deselectVehicle())}
+          >
+            Back
+          </Button>
+        )}
+        {isEditing && (
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{ m: "4px 8px" }}
+            onClick={() => setIsEditing(false)}
+          >
+            Cancel
+          </Button>
+        )}
         <Button
           variant="contained"
-          color="secondary"
+          color="primary"
           sx={{ m: "4px 8px" }}
-          onClick={() => dispatch(deselectVehicle())}
+          onClick={handleEditSaveClick}
         >
-          Back
+          {isEditing ? "Save" : "Edit"}
         </Button>
-      )}
-      {isEditing && (
-        <Button
-          variant="contained"
-          color="secondary"
-          sx={{ m: "4px 8px" }}
-          onClick={() => setIsEditing(false)}
-        >
-          Cancel
-        </Button>
-      )}
-      <Button
-        variant="contained"
-        color="primary"
-        sx={{ m: "4px 8px" }}
-        onClick={handleEditSaveClick}
-      >
-        {isEditing ? "Save" : "Edit"}
-      </Button>
-    </form>
+      </form>
+    </Box>
   );
 };
 
