@@ -14,7 +14,7 @@ State Management: Redux
 
 ## How to run
 
-### `yarn start`
+### `yarn && yarn start`
 
 ## How to test
 
