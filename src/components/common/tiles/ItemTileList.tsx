@@ -69,7 +69,7 @@ const ItemTileList = ({
             onClick={() => onItemClick(item?.id)}
             id={item?.id}
             label={item?.name}
-            image={require("../../../static/default_image.png")}
+            image={require("../../../static/default_image.png")} // ToDo: this won't work in a real environment. I need to change how it handles the path
           />
         ))}
       </Box>
