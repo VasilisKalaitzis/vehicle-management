@@ -3,7 +3,7 @@ import {
   updateVehicle,
   getVehicles,
   getVehicleById,
-} from "../vehicle-apis";
+} from "../vehicleApis";
 import { generateUniqueId } from "../utils";
 
 // Mock the localStorage object

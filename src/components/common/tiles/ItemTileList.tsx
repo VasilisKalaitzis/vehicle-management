@@ -40,7 +40,7 @@ const ItemTileList = ({
   };
 
   return (
-    <Box width="100%" height="inherit">
+    <Box width="100%" height="inherit" data-testid="itemTileList">
       <Box p="8px 16px" display="flex" height="38px">
         <Typography variant="h4" pr="16px">
           {title}

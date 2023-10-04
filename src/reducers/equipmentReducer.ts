@@ -1,7 +1,7 @@
 import {
   EquipmentAction,
   EquipmentActionTypes,
-} from "../actions/equipment-actions";
+} from "../actions/equipmentActions";
 
 const initialState: EquipmentState = {
   equipmentList: [],

@@ -3,7 +3,7 @@ import {
   updateEquipment,
   getEquipments,
   getEquipmentById,
-} from "../equipment-apis";
+} from "../equipmentApis";
 import { generateUniqueId } from "../utils";
 
 // Mock the localStorage object

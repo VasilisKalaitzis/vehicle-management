@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Button, Grid, Box, Typography } from "@mui/material";
-import { RootState } from "../../store";
+import { RootState } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deselectEquipment,
   updateEquipment,
-} from "../../actions/equipment-actions";
+} from "../../actions/equipmentActions";
 
 const EquipmentForm = () => {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const EquipmentForm = () => {
   };
 
   return (
-    <Box width="100%" height="inherit">
+    <Box width="100%" height="inherit" data-testid="equipmentForm">
       <Box p="8px 16px" display="flex" height="38px">
         <Typography variant="h4" pr="16px">
           Equipment

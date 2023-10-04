@@ -1,4 +1,4 @@
-import { RootState } from "../../store";
+import { RootState } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import ItemTileList from "../common/tiles/ItemTileList";
 import {
@@ -6,7 +6,7 @@ import {
   deselectVehicle,
   fetchVehicles,
   selectVehicle,
-} from "../../actions/vehicle-actions";
+} from "../../actions/vehicleActions";
 import VehicleForm from "./VehicleForm";
 import { IMPORT_TYPE_VALUES, NEW_ITEM_TEMP_ID } from "../../constants/item";
 import { useEffect } from "react";

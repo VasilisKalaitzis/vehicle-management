@@ -12,11 +12,11 @@ import {
   Box,
   Typography,
 } from "@mui/material";
-import { RootState } from "../../store";
+import { RootState } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
-import { deselectVehicle, updateVehicle } from "../../actions/vehicle-actions";
+import { deselectVehicle, updateVehicle } from "../../actions/vehicleActions";
 import { ACTIVE_STATUS_VALUES, fuelTypes } from "../../constants/item";
-import { fetchEquipments } from "../../actions/equipment-actions";
+import { fetchEquipments } from "../../actions/equipmentActions";
 
 const VehicleForm = () => {
   const dispatch = useDispatch();
@@ -63,7 +63,7 @@ const VehicleForm = () => {
   };
 
   return (
-    <Box width="100%" height="inherit">
+    <Box width="100%" height="inherit" data-testid="vehicleForm">
       <Box p="8px 16px" display="flex" height="38px">
         <Typography variant="h4" pr="16px">
           Vehicle

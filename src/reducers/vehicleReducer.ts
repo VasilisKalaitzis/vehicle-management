@@ -1,4 +1,4 @@
-import { VehicleAction, VehicleActionTypes } from "../actions/vehicle-actions";
+import { VehicleAction, VehicleActionTypes } from "../actions/vehicleActions";
 
 const initialState: VehicleState = {
   vehicleList: [],

@@ -1,8 +1,8 @@
-import { equipmentReducer } from "../equipment-reducer";
+import { equipmentReducer } from "../equipmentReducer";
 import {
   EquipmentActionTypes,
   EquipmentAction,
-} from "../../actions/equipment-actions";
+} from "../../actions/equipmentActions";
 
 describe("equipment-reducer", () => {
   it("should handle SELECT_EQUIPMENT action", () => {

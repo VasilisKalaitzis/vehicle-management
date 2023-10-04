@@ -1,5 +1,5 @@
 import { NEW_ITEM_TEMP_ID } from "../constants/item";
-import backendApi from "../mock-backend-services";
+import backendApi from "../mockBackendServices";
 
 export enum VehicleActionTypes {
   SELECT_VEHICLE = "SELECT_VEHICLE",

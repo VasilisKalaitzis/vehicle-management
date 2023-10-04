@@ -15,6 +15,7 @@ const ItemTile = (props: Props) => {
   return (
     <Button
       disableElevation
+      data-testid="item-tile"
       sx={{
         height: "156px",
         width: "240px",

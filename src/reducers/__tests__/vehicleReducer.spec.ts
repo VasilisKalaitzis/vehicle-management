@@ -1,8 +1,8 @@
-import { vehicleReducer } from "../vehicle-reducer";
+import { vehicleReducer } from "../vehicleReducer";
 import {
   VehicleActionTypes,
   VehicleAction,
-} from "../../actions/vehicle-actions";
+} from "../../actions/vehicleActions";
 
 describe("vehicle-reducer", () => {
   it("should handle SELECT_VEHICLE action", () => {

@@ -3,13 +3,13 @@ import {
   updateVehicle,
   getVehicleById,
   getVehicles,
-} from "./vehicle-apis";
+} from "./vehicleApis";
 import {
   addEquipments,
   updateEquipment,
   getEquipmentById,
   getEquipments,
-} from "./equipment-apis";
+} from "./equipmentApis";
 
 const backendApi = {
   addVehicles,

@@ -1,11 +1,11 @@
-import { RootState } from "../../store";
+import { RootState } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addEquipments,
   deselectEquipment,
   fetchEquipments,
   selectEquipment,
-} from "../../actions/equipment-actions";
+} from "../../actions/equipmentActions";
 import ItemTileList from "../common/tiles/ItemTileList";
 import EquipmentForm from "./EquipmentForm";
 import { IMPORT_TYPE_VALUES, NEW_ITEM_TEMP_ID } from "../../constants/item";

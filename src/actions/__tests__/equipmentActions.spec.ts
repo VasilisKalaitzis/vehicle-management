@@ -5,10 +5,10 @@ import {
   addEquipments,
   updateEquipment,
   EquipmentActionTypes,
-} from "../equipment-actions";
-import backendApi from "../../mock-backend-services";
+} from "../equipmentActions";
+import backendApi from "../../mockBackendServices";
 
-jest.mock("../../mock-backend-services", () => ({
+jest.mock("../../mockBackendServices", () => ({
   getEquipmentById: jest.fn(),
   getEquipments: jest.fn(),
   addEquipments: jest.fn(),

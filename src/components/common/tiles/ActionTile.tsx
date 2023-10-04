@@ -15,6 +15,7 @@ const ActionTile = (props: Props) => {
     <Button
       disableElevation
       disableFocusRipple
+      data-testid="action-tile"
       sx={(theme) => ({
         height: "156px",
         width: "240px",

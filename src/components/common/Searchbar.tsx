@@ -30,8 +30,14 @@ const Searchbar = ({ onChange }: Props) => {
         flexGrow: 1,
       })}
       onChange={handleChange}
+      data-testid="searchbar"
+      inputProps={{ "data-testid": "searchbar-input" }}
       startAdornment={
-        <InputAdornment position="start" sx={{ marginLeft: "4px" }}>
+        <InputAdornment
+          data-testid="searchbar-icon"
+          position="start"
+          sx={{ marginLeft: "4px" }}
+        >
           <Search />
         </InputAdornment>
       }

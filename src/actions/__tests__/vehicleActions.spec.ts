@@ -5,10 +5,10 @@ import {
   addVehicles,
   updateVehicle,
   VehicleActionTypes,
-} from "../vehicle-actions";
-import backendApi from "../../mock-backend-services";
+} from "../vehicleActions";
+import backendApi from "../../mockBackendServices";
 
-jest.mock("../../mock-backend-services", () => ({
+jest.mock("../../mockBackendServices", () => ({
   getVehicleById: jest.fn(),
   getVehicles: jest.fn(),
   addVehicles: jest.fn(),
