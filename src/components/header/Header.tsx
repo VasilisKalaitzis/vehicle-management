@@ -16,6 +16,7 @@ const Header = () => (
   <AppBar
     position="fixed"
     sx={{ height: TOP_BAR_HEIGHT, bgcolor: "white", color: "black" }}
+    data-testid="header"
   >
     <Toolbar>
       <HeaderSegments flexGrow="1">

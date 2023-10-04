@@ -9,7 +9,7 @@ import CommuteIcon from "@mui/icons-material/Commute";
 import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
 
 const MainBody = styled(Grid)({
-  height: `calc(100vh - ${TOP_BAR_HEIGHT}px)`, // adjust this value to match your toolbar height
+  height: `calc(100vh - ${TOP_BAR_HEIGHT}px)`,
   overflow: "hidden",
   flexGrow: 1,
   marginTop: `${TOP_BAR_HEIGHT}px`,
@@ -42,7 +42,7 @@ const App: React.FC = () => {
   return (
     <>
       <Header />
-      <MainBody container>
+      <MainBody data-testid="main-body" container>
         <Tabs
           orientation="vertical"
           value={activeTab}

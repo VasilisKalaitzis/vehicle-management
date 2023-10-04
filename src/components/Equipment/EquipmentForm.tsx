@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   deselectEquipment,
   updateEquipment,
-} from "../../actions/equipmentActions";
+} from "../../actions/equipment-actions";
 
 const EquipmentForm = () => {
   const dispatch = useDispatch();

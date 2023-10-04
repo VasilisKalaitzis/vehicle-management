@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import App from "./components/App";
 import "./index.css";
-import { theme } from "./theme";
+import { theme } from "./theme/theme";
 import { ThemeProvider } from "@mui/material";
 
 const rootElement = document.getElementById("root");

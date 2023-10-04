@@ -14,9 +14,9 @@ import {
 } from "@mui/material";
 import { RootState } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
-import { deselectVehicle, updateVehicle } from "../../actions/vehicleActions";
+import { deselectVehicle, updateVehicle } from "../../actions/vehicle-actions";
 import { ACTIVE_STATUS_VALUES, fuelTypes } from "../../constants/item";
-import { fetchEquipments } from "../../actions/equipmentActions";
+import { fetchEquipments } from "../../actions/equipment-actions";
 
 const VehicleForm = () => {
   const dispatch = useDispatch();

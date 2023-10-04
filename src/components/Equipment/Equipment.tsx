@@ -5,7 +5,7 @@ import {
   deselectEquipment,
   fetchEquipments,
   selectEquipment,
-} from "../../actions/equipmentActions";
+} from "../../actions/equipment-actions";
 import ItemTileList from "../common/tiles/ItemTileList";
 import EquipmentForm from "./EquipmentForm";
 import { IMPORT_TYPE_VALUES, NEW_ITEM_TEMP_ID } from "../../constants/item";
