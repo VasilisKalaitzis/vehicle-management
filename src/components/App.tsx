@@ -1,9 +1,9 @@
 import React, { SyntheticEvent, useState } from "react";
-import Header from "./Header/Header";
+import Header from "./header/Header";
 import { Grid, Tabs, Tab, styled } from "@mui/material";
 import { TOP_BAR_HEIGHT } from "../constants/app-constants";
 import TabPanel from "./common/TabPanel";
-import Vehicles from "./Vehicles/Vehicles";
+import Vehicles from "./vehicles/Vehicles";
 import Equipment from "./Equipment/Equipment";
 import CommuteIcon from "@mui/icons-material/Commute";
 import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
