@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   TextField,
   Select,
@@ -43,12 +43,9 @@ const VehicleForm = () => {
 
   const handleChange = (e: any) => {
     const { name, type, value, checked } = e.target;
-    let newValue = value;
-    if (type === "checkbox") {
-      newValue = checked
-        ? ACTIVE_STATUS_VALUES.ACTIVE
-        : ACTIVE_STATUS_VALUES.INACTIVE;
-    }
+    const newValue = type === "checkbox"
+      ? checked ? ACTIVE_STATUS_VALUES.ACTIVE : ACTIVE_STATUS_VALUES.INACTIVE
+      : value;
     setFormData({
       ...formData,
       [name]: newValue,
@@ -81,7 +78,7 @@ const VehicleForm = () => {
               required
               variant="outlined"
               margin="normal"
-              disabled={true}
+              disabled
             />
           </Grid>
           <Grid item xs={6} md={4}>
@@ -163,11 +160,7 @@ const VehicleForm = () => {
                 control={
                   <Switch
                     name="status"
-                    checked={
-                      formData.status === ACTIVE_STATUS_VALUES.ACTIVE
-                        ? true
-                        : false
-                    }
+                    checked={formData.status === ACTIVE_STATUS_VALUES.ACTIVE}
                     onChange={handleChange}
                     disabled={!isEditing}
                   />

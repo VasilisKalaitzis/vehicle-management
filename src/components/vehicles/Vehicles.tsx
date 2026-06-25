@@ -23,7 +23,7 @@ const Vehicles = () => {
     };
   }, [dispatch]);
 
-  // View equipment data
+  // View vehicle data
   const handleClickOnEquipment = (id?: Id) =>
     dispatch(selectVehicle(id ?? NEW_ITEM_TEMP_ID));
 

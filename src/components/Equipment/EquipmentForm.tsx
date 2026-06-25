@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { TextField, Button, Grid, Box, Typography } from "@mui/material";
 import { RootState } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,10 +24,9 @@ const EquipmentForm = () => {
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
-    let newValue = value;
     setFormData({
       ...formData,
-      [name]: newValue,
+      [name]: value,
     });
   };
 
@@ -57,7 +56,7 @@ const EquipmentForm = () => {
               required
               variant="outlined"
               margin="normal"
-              disabled={true}
+              disabled
             />
           </Grid>
           <Grid item xs={6} md={4}>

@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import Header from "./header/Header";
 import { Grid, Tabs, Tab, styled } from "@mui/material";
 import { TOP_BAR_HEIGHT } from "../constants/app-constants";
@@ -17,7 +17,7 @@ const MainBody = styled(Grid)({
   flexWrap: "nowrap",
 });
 
-const App: React.FC = () => {
+const App = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabChange = (_event: SyntheticEvent, newValue: number) => {

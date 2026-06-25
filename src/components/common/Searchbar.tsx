@@ -1,4 +1,4 @@
-import React from "react";
+import { useRef } from "react";
 import { InputAdornment, InputBase } from "@mui/material";
 import { Search } from "@mui/icons-material";
 
@@ -8,18 +8,16 @@ interface Props {
 
 // This component represents the searchbar used throughout the app
 const Searchbar = ({ onChange }: Props) => {
-  // Create a timer ID to keep track of the setTimeout
-  let timerId: NodeJS.Timeout;
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
-    // Clear any previous timer and set a new one
-    clearTimeout(timerId);
-    timerId = setTimeout(() => {
-      // Call onChange after 1000 milliseconds (1 second)
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
       onChange(newValue);
     }, 500);
   };
+
   return (
     <InputBase
       sx={(theme) => ({

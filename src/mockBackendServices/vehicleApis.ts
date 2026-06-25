@@ -16,7 +16,7 @@ export const addVehicles = (newVehicles: Vehicle[]) => {
 };
 
 export const updateVehicle = (newVehicle: Vehicle) => {
-  let updatedVehicle = newVehicle;
+  const updatedVehicle = newVehicle;
   const localStorageVehicles = localStorage.getItem("vehicles");
   const vehicleList: Vehicle[] = localStorageVehicles
     ? JSON.parse(localStorageVehicles)
@@ -45,7 +45,7 @@ export const getVehicles = (searchQuery?: string) => {
           item?.name &&
           item.name
             .toLocaleLowerCase()
-            .indexOf(searchQuery.toLocaleLowerCase()) > -1,
+            .includes(searchQuery.toLocaleLowerCase()),
       )
     : vehicleList;
   return filteredVehicles.map((item) => ({

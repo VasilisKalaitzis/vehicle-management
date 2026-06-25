@@ -16,7 +16,7 @@ export const addEquipments = (newEquipments: Equipment[]) => {
 };
 
 export const updateEquipment = (newEquipment: Equipment) => {
-  let updatedEquipment = newEquipment;
+  const updatedEquipment = newEquipment;
   const localStorageEquipments = localStorage.getItem("equipments");
   const equipmentList: Equipment[] = localStorageEquipments
     ? JSON.parse(localStorageEquipments)
@@ -45,7 +45,7 @@ export const getEquipments = (searchQuery?: string) => {
           item?.name &&
           item.name
             .toLocaleLowerCase()
-            .indexOf(searchQuery.toLocaleLowerCase()) > -1,
+            .includes(searchQuery.toLocaleLowerCase()),
       )
     : equipmentList;
   return filteredEquipments.map((item) => ({

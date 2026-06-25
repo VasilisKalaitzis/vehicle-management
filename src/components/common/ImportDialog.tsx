@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef, DragEvent, ChangeEvent } from "react";
 import {
   Button,
   Dialog,
@@ -38,7 +38,7 @@ const readFileAsJSON = (file: File): Promise<any> => {
 const ImportDialog = ({ open, onClose, onImport }: Props) => {
   // Create a ref for the file input element
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
+  const handleDragOver = (event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
   };
 
@@ -58,13 +58,13 @@ const ImportDialog = ({ open, onClose, onImport }: Props) => {
     }
   };
 
-  const handleDrop = async (event: React.DragEvent<HTMLDivElement>) => {
+  const handleDrop = async (event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
     handleImport(files);
   };
 
-  const handleFileInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileInput = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     handleImport(files);
   };
